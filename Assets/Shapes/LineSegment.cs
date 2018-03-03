@@ -8,29 +8,36 @@ public class LineSegment
 	private static Matrix4x4 _cacheMatrix = Matrix4x4.identity;
 	private static MaterialPropertyBlock _materialPropertyBlock;
 	public static float antiAliasingSmoothing = 1.5f;
+	private static Material[] _materials = new Material[4];
+
+	private static string _colorParam = "_Color";
+	private static string _antiAliasingSmoothingParam = "_AASmoothing";
+	private static string _fillWidthParam = "_FillWidth";
+	private static string _borderColorParam = "_BorderColor";
+
 
 	public static Vector3 FaceCameraForward
 	{
 		get { return -Camera.main.transform.forward; }
 	}
-	
-	public static void Draw(Vector3 startPos, Vector3 endPos,Vector3 forward, float width, Color color)
+
+	static void Setup(int materialIndex, params string[] materialKeywords)
 	{
 		if (_lineSegmentMesh == null)
 		{
 			_lineSegmentMesh = CreateLineSegmentMesh();
 		}
 
-		if (_lineSegmentMaterial == null)
-		{
-			_lineSegmentMaterial = CreateLineSegmentMaterial();
-		}
+		_lineSegmentMaterial = GetOrCreateMaterial(materialIndex,materialKeywords);
 
 		if (_materialPropertyBlock == null)
 		{
 			_materialPropertyBlock = new MaterialPropertyBlock();
 		}
+	}
 
+	static Matrix4x4 GetLineTRSMatrix(Vector3 startPos, Vector3 endPos,Vector3 forward, float width)
+	{
 		var lineLength = Vector3.Distance(endPos,startPos);
 
 		var up = (endPos - startPos).normalized;
@@ -53,16 +60,59 @@ public class LineSegment
 		Vector4 translation = startPos;
 		translation.w = 1f;
 		mat.SetColumn(3,translation);
+
+		return mat;
+	}
+	
+	public static void Draw(Vector3 startPos, Vector3 endPos,Vector3 forward, float width, Color color)
+	{
+		Setup(0);
+
+		var mat = GetLineTRSMatrix(startPos, endPos, forward, width);
 		
-		_materialPropertyBlock.SetColor("_Color",color);
-		_materialPropertyBlock.SetFloat("_AASmoothing",antiAliasingSmoothing);
+		_materialPropertyBlock.SetColor(_colorParam,color);
+		_materialPropertyBlock.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
 		
 		Graphics.DrawMesh(_lineSegmentMesh,mat,_lineSegmentMaterial,0,null,0,_materialPropertyBlock);
 	}
 	
-	private static Material CreateLineSegmentMaterial()
+	
+	public static void Draw(Vector3 startPos, Vector3 endPos,Vector3 forward, float width, 
+		Color color, Color borderColor, float borderWidth)
 	{
-		return new Material(Shader.Find("Hidden/Shapes/LineSegment"));
+		Setup(1,"BORDER");
+
+		var mat = GetLineTRSMatrix(startPos, endPos, forward, width);
+		
+		_materialPropertyBlock.SetColor(_colorParam,color);
+		_materialPropertyBlock.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
+		_materialPropertyBlock.SetColor(_borderColorParam,borderColor);
+		float borderWidthNormalized = borderWidth / width;
+		_materialPropertyBlock.SetFloat(_fillWidthParam,0.5f-borderWidthNormalized);
+		
+		Graphics.DrawMesh(_lineSegmentMesh,mat,_lineSegmentMaterial,0,null,0,_materialPropertyBlock);
+	}
+	
+	private static Material GetOrCreateMaterial(int materialIndex,params string[] keywords)
+	{
+		if (_materials[materialIndex] != null)
+		{
+			return _materials[materialIndex];
+		}
+		
+		var mat = new Material(Shader.Find("Hidden/Shapes/LineSegment"));
+		if (SystemInfo.supportsInstancing)
+		{
+			mat.enableInstancing = true;
+		}
+		foreach (var keyword in keywords)
+		{
+			mat.EnableKeyword(keyword);
+		}
+
+		_materials[materialIndex] = mat;
+		
+		return mat;
 	}
 	
 	private static Mesh CreateLineSegmentMesh()

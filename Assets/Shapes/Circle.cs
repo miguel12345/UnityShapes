@@ -7,7 +7,7 @@ public class Circle
 	private static Material[] _materials = new Material[4];
 	public static float antiAliasingSmoothing = 1.5f;
 
-	private const string BorderColorKeyword = "BORDER_COLOR";
+	private const string BorderColorKeyword = "BORDER";
 	private const string SectorKeyword = "SECTOR";
 
 	private const string FillColorParam = "_FillColor";
@@ -134,7 +134,12 @@ public class Circle
 		}
 		
 		var mat = new Material(Shader.Find("Hidden/Shapes/Circle"));
-		mat.enableInstancing = true;
+		
+		if (SystemInfo.supportsInstancing)
+		{
+			mat.enableInstancing = true;
+		}
+		
 		foreach (var keyword in keywords)
 		{
 			mat.EnableKeyword(keyword);

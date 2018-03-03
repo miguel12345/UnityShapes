@@ -28,7 +28,7 @@
             <e p="CircleDebugRenderer.cs" t="Include" />
           </e>
           <e p="Lines" t="Include">
-            <e p="LineSegmentDrawTest.cs" t="Include" />
+            <e p="LineDebugRenderer.cs" t="Include" />
           </e>
         </e>
       </e>

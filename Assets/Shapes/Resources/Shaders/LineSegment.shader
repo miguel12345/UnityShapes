@@ -17,13 +17,17 @@
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			// make fog work
-			#pragma multi_compile_fog
+            #pragma multi_compile _ BORDER
 			
 			#include "UnityCG.cginc"
 
             float _AASmoothing;
             fixed4 _Color;
+            
+            #if BORDER
+            fixed4 _BorderColor;
+            float _FillWidth;
+            #endif
 
 			struct appdata
 			{
@@ -49,14 +53,20 @@
 			{
 			    float edgeDistance = i.uv.x;
 			    
-			    float edgeDistanceDerivative = fwidth(edgeDistance);
+			    float edgeDistancePerPixel = fwidth(edgeDistance);
+			    			    
+			    fixed4 fillColor = _Color;
 			    
-			    float alpha = 1.0 - smoothstep(0.5 - edgeDistanceDerivative*_AASmoothing, 0.5, edgeDistance);
+			    #if BORDER
+			    float fillToBlendColorLerpFactor = smoothstep(_FillWidth,_FillWidth + edgeDistancePerPixel*_AASmoothing,edgeDistance);
+			    fillColor = lerp(fillColor,_BorderColor,fillToBlendColorLerpFactor);
+			    #endif
 			    
-			    fixed4 finalColor = _Color;
-			    finalColor.a *= alpha;
+                float edgeAlpha = 1.0 - smoothstep(0.5 - edgeDistancePerPixel*_AASmoothing, 0.5, edgeDistance);
+
+			    fillColor.a *= edgeAlpha;
 			    
-                return finalColor;
+                return fillColor;
 			}
 			ENDCG
 		}

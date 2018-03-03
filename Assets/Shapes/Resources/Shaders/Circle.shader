@@ -18,7 +18,7 @@
 			#pragma vertex vert
 			#pragma fragment frag
 			
-			#pragma multi_compile _ BORDER_COLOR 
+			#pragma multi_compile _ BORDER 
 			#pragma multi_compile _ SECTOR
             #pragma multi_compile_instancing
 			
