@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\amigu\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_UnityShapes.1449667596.00" t="ExcludeRecursive" />
+    <e p="D:\Projects\Pessoal\Unity\UnityShapes" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Shapes" t="Include">
+          <e p="Circle.cs" t="Include" />
+          <e p="LineSegment.cs" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="Circle.shader" t="Include" />
+              <e p="LineSegment.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Shapes Sample scenes" t="Include">
+          <e p="CircleDebugRenderer.cs" t="Include" />
+          <e p="LineSegmentDrawTest.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="UnityShapes.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

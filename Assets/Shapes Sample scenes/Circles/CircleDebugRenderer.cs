@@ -29,22 +29,22 @@ namespace Shapes.Debug
 			{
 				if (Sector)
 				{
-					Circle.DrawSector(transform.position,Radius,FillColor,BorderColor,BorderWidth,InitialAngle,ArcLength);
+					Circle.DrawSector(transform.position,Camera.main.transform.forward,Radius,FillColor,BorderColor,BorderWidth,InitialAngle,ArcLength);
 				}
 				else
 				{
-					Circle.Draw(transform.position,Radius,FillColor,BorderColor,BorderWidth);
+					Circle.Draw(transform.position,Camera.main.transform.forward,Radius,FillColor,BorderColor,BorderWidth);
 				}
 			}
 			else
 			{
 				if (Sector)
 				{
-					Circle.DrawSector(transform.position,Radius,FillColor,InitialAngle,ArcLength);
+					Circle.DrawSector(transform.position,Camera.main.transform.forward,Radius,FillColor,InitialAngle,ArcLength);
 				}
 				else
 				{
-					Circle.Draw(transform.position,Radius,FillColor);
+					Circle.Draw(transform.position,Camera.main.transform.forward,Radius,FillColor);
 				}
 			}
 		}

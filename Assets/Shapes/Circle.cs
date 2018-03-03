@@ -23,7 +23,7 @@ public class Circle
 	private static int _borderlessSectorMaterialIndex = 2;
 	private static int _borderSectorMaterialIndex = 3;
 
-	public static void DrawSector(Vector3 center, float radius,Color fillColor, Color borderColor, float borderWidth,
+	public static void DrawSector(Vector3 center, Vector3 forward, float radius,Color fillColor, Color borderColor, float borderWidth,
 		float initialAngleDegrees, float sectorArcLength)
 	{
 		if (_quadMesh == null)
@@ -42,12 +42,15 @@ public class Circle
 
 		setSectorAngles(materialPropertyBlock,initialAngleDegrees, sectorArcLength);
 
-		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,Quaternion.identity, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
+		var rotation = Quaternion.LookRotation(forward);
+		
+		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
 	}
 	
-	public static void DrawSector(Vector3 center, float radius,Color fillColor,
+	public static void DrawSector(Vector3 center, Vector3 forward, float radius,Color fillColor,
 		float initialAngleDegrees, float sectorArcLength)
 	{
+		//TODO FINISH FORWARD VECTOR
 		if (_quadMesh == null)
 		{
 			_quadMesh = CreateQuadMesh();
@@ -62,7 +65,9 @@ public class Circle
 
 		setSectorAngles(materialPropertyBlock,initialAngleDegrees, sectorArcLength);
 
-		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,Quaternion.identity, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
+		var rotation = Quaternion.LookRotation(forward);
+		
+		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
 	}
 
 	static void setSectorAngles(MaterialPropertyBlock block, float initialAngleDegrees, float sectorArcLengthDegrees)
@@ -74,14 +79,12 @@ public class Circle
 		Vector2 cutPlaneNormal1 = new Vector2(Mathf.Sin(initialAngleRadians), -Mathf.Cos(initialAngleRadians));
 		Vector2 cutPlaneNormal2 = new Vector2(-Mathf.Sin(finalAngleRadians), Mathf.Cos(finalAngleRadians));
 		
-		//Convert from 0 -> 360° to -PI -> PI
-		
 		block.SetVector(SectorPlaneNormal1,cutPlaneNormal1);
 		block.SetVector(SectorPlaneNormal2,cutPlaneNormal2);
 		block.SetFloat(SectorAngleBlendMode,sectorArcLengthDegrees<180f?0f:1f);
 	}
 	
-	public static void Draw(Vector3 center, float radius,Color fillColor, Color borderColor,float borderWidth)
+	public static void Draw(Vector3 center, Vector3 forward, float radius,Color fillColor, Color borderColor,float borderWidth)
 	{
 		if (_quadMesh == null)
 		{
@@ -97,10 +100,12 @@ public class Circle
 		materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidth);
 		materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
 
-		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,Quaternion.identity, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
+		var rotation = Quaternion.LookRotation(forward);
+
+		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
 	}
 	
-	public static void Draw(Vector3 center, float radius,Color fillColor)
+	public static void Draw(Vector3 center, Vector3 forward, float radius,Color fillColor)
 	{
 		if (_quadMesh == null)
 		{
@@ -114,7 +119,9 @@ public class Circle
 		materialPropertyBlock.SetColor(FillColorParam,fillColor);
 		materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
 
-		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,Quaternion.identity, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
+		var rotation = Quaternion.LookRotation(forward);
+		
+		Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
 	}
 
 	private static Material GetOrCreateCircleMaterial(int materialIndex,params string[] keywords)
@@ -125,6 +132,7 @@ public class Circle
 		}
 		
 		var mat = new Material(Shader.Find("Hidden/Shapes/Circle"));
+		mat.enableInstancing = true;
 		foreach (var keyword in keywords)
 		{
 			mat.EnableKeyword(keyword);

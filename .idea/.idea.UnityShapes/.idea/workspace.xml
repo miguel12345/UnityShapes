@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="86710981-a8ff-47b3-982b-ad622e8c1b53" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.UnityShapes/.idea/contentModel.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.UnityShapes/.idea/indexLayout.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.UnityShapes/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.UnityShapes/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.UnityShapes/riderModule.iml" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Circle.cs" afterPath="$PROJECT_DIR$/Assets/Shapes/Circle.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Debug.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Debug/CircleDebugRenderer.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Debug/CircleDebugRenderer.cs.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Debug/CircleShapeDebugScene.unity" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Debug/CircleShapeDebugScene.unity.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Debug/LineSegmentDrawTest.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Debug/LineSegmentDrawTest.cs.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/Circle.shader" afterPath="$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/Circle.shader" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="Circle.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Shapes/Circle.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1540">
+              <caret line="98" column="30" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+              <folding>
+                <marker date="1520075731034" expanded="false" signature="6:52" ph="..." />
+                <marker date="1520075731034" expanded="true" signature="73:5761" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="1133:1911" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="1161:1202" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="2059:2721" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="2118:2159" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="2837:3396" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="3523:4205" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="3551:3592" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="4295:4832" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="4323:4364" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="4928:5245" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="4972:5017" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="5150:5189" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="5285:5759" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="5361:5481" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="5516:5544" ph="{...}" />
+                <marker date="1520075731034" expanded="true" signature="5611:5735" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LineSegmentDrawTest.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Shapes Sample scenes/LineSegmentDrawTest.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1519770248588" expanded="false" signature="6:78" ph="..." />
+                <marker date="1519770248588" expanded="true" signature="128:568" ph="{...}" />
+                <marker date="1519770248588" expanded="true" signature="362:566" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CircleDebugRenderer.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Shapes Sample scenes/CircleDebugRenderer.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+              <folding>
+                <marker date="1520014776998" expanded="true" signature="42:1031" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="97:1029" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="431:1026" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="450:756" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="471:621" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="630:751" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="764:1022" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="785:911" ph="{...}" />
+                <marker date="1520014776998" expanded="true" signature="920:1017" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Circle.shader" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/Circle.shader">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+              <folding>
+                <marker date="1520092422757" expanded="true" signature="30:3873" ph="{...}" />
+                <marker date="1520092422757" expanded="true" signature="45:49" ph="{...}" />
+                <marker date="1520092422757" expanded="true" signature="62:3871" ph="{...}" />
+                <marker date="1520092422757" expanded="true" signature="172:3868" ph="{...}" />
+                <marker date="1520092422757" expanded="true" signature="263:3859" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LineSegment.shader" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/LineSegment.shader">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+              <folding>
+                <marker date="1519769751932" expanded="true" signature="35:1124" ph="{...}" />
+                <marker date="1519769751932" expanded="true" signature="50:54" ph="{...}" />
+                <marker date="1519769751932" expanded="true" signature="67:1122" ph="{...}" />
+                <marker date="1519769751932" expanded="true" signature="151:1119" ph="{...}" />
+                <marker date="1519769751932" expanded="true" signature="242:1110" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>_FillColor</find>
+      <find>_AASmoothing</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Shapes/Circle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shapes Sample scenes/CircleDebugRenderer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/LineSegment.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/Circle.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shapes Sample scenes/LineSegmentDrawTest.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Shapes/Debug/CircleDebugRenderer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shapes/Circle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/Circle.shader" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-187" />
+    <option name="y" value="1304" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource SolutionExplorer="true" />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="References" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Shapes" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Shapes" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Resources" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Shapes" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Resources" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Shaders" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityShapes (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Shapes Sample scenes" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="86710981-a8ff-47b3-982b-ad622e8c1b53" name="Default" comment="" />
+      <created>1520014137916</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1520014137916</updated>
+      <workItem from="1520014142018" duration="635000" />
+      <workItem from="1520073877487" duration="2752000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3387000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="1341" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725028" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes/Circle.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="121" column="56" lean-forward="false" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
+          <folding>
+            <marker date="1520075731034" expanded="false" signature="6:52" ph="..." />
+            <marker date="1520075731034" expanded="true" signature="73:5761" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="1133:1911" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="1161:1202" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="2059:2721" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="2118:2159" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="2837:3396" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="3523:4205" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="3551:3592" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4295:4832" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4323:4364" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4928:5245" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4972:5017" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5150:5189" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5285:5759" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5361:5481" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5516:5544" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5611:5735" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes/Debug/CircleDebugRenderer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes/Debug/CircleDebugRenderer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/LineSegment.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <marker date="1519769751932" expanded="true" signature="35:1124" ph="{...}" />
+            <marker date="1519769751932" expanded="true" signature="50:54" ph="{...}" />
+            <marker date="1519769751932" expanded="true" signature="67:1122" ph="{...}" />
+            <marker date="1519769751932" expanded="true" signature="151:1119" ph="{...}" />
+            <marker date="1519769751932" expanded="true" signature="242:1110" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes Sample scenes/LineSegmentDrawTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519770248588" expanded="false" signature="6:78" ph="..." />
+            <marker date="1519770248588" expanded="true" signature="128:568" ph="{...}" />
+            <marker date="1519770248588" expanded="true" signature="362:566" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes Sample scenes/CircleDebugRenderer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <marker date="1520014776998" expanded="true" signature="42:1031" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="97:1029" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="431:1026" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="450:756" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="471:621" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="630:751" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="764:1022" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="785:911" ph="{...}" />
+            <marker date="1520014776998" expanded="true" signature="920:1017" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes/Circle.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="98" column="30" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+          <folding>
+            <marker date="1520075731034" expanded="false" signature="6:52" ph="..." />
+            <marker date="1520075731034" expanded="true" signature="73:5761" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="1133:1911" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="1161:1202" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="2059:2721" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="2118:2159" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="2837:3396" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="3523:4205" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="3551:3592" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4295:4832" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4323:4364" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4928:5245" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="4972:5017" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5150:5189" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5285:5759" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5361:5481" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5516:5544" ph="{...}" />
+            <marker date="1520075731034" expanded="true" signature="5611:5735" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shapes/Resources/Shaders/Circle.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+          <folding>
+            <marker date="1520092422757" expanded="true" signature="30:3873" ph="{...}" />
+            <marker date="1520092422757" expanded="true" signature="45:49" ph="{...}" />
+            <marker date="1520092422757" expanded="true" signature="62:3871" ph="{...}" />
+            <marker date="1520092422757" expanded="true" signature="172:3868" ph="{...}" />
+            <marker date="1520092422757" expanded="true" signature="263:3859" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
