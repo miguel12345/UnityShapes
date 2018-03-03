@@ -37,7 +37,8 @@ public class Circle
 		
 		materialPropertyBlock.SetColor(FillColorParam,fillColor);
 		materialPropertyBlock.SetColor(BorderColorParam,borderColor);
-		materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidth);
+		var borderWidthNormalized = borderWidth / radius;
+		materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidthNormalized);
 		materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
 
 		setSectorAngles(materialPropertyBlock,initialAngleDegrees, sectorArcLength);
@@ -97,7 +98,8 @@ public class Circle
 		
 		materialPropertyBlock.SetColor(FillColorParam,fillColor);
 		materialPropertyBlock.SetColor(BorderColorParam,borderColor);
-		materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidth);
+		var borderWidthNormalized = borderWidth / radius;
+		materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidthNormalized);
 		materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
 
 		var rotation = Quaternion.LookRotation(forward);
