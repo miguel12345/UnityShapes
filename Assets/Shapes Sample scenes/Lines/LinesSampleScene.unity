@@ -223,12 +223,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPointTransform: {fileID: 2006768918}
   endPointTransform: {fileID: 144567601}
-  lineWidth: 1
+  lineWidth: 0.4
   aaSmoothing: 0.5
   color: {r: 1, g: 0, b: 0, a: 1}
   Border: 0
   BorderColor: {r: 0, g: 0, b: 0, a: 1}
   BorderWidth: 0.2
+  Dashed: 0
+  DistanceBetweenDashes: 0.3
+  DashWidth: 0.1
 --- !u!4 &108506627
 Transform:
   m_ObjectHideFlags: 0
@@ -265,8 +268,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 144567600}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.99, y: 3.84, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.524, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 108506627}

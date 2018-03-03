@@ -16,6 +16,12 @@ public class LineDebugRenderer : MonoBehaviour
 	public Color BorderColor;
 	[Range(0.1f,1f)]
 	public float BorderWidth = 0.2f;
+
+	public bool Dashed;
+	[Range(0.1f,1f)]
+	public float DistanceBetweenDashes = 0.3f;
+	[Range(0.1f,1f)]
+	public float DashWidth = 0.1f;
 	
 	private void Update()
 	{
@@ -27,7 +33,14 @@ public class LineDebugRenderer : MonoBehaviour
 		}
 		else
 		{
-			LineSegment.Draw(startPointTransform.position,endPointTransform.position,LineSegment.FaceCameraForward,lineWidth,color);
+			if (Dashed)
+			{
+				LineSegment.DrawDashed(startPointTransform.position,endPointTransform.position,LineSegment.FaceCameraForward,lineWidth,color,DistanceBetweenDashes,DashWidth);
+			}
+			else
+			{
+				LineSegment.Draw(startPointTransform.position,endPointTransform.position,LineSegment.FaceCameraForward,lineWidth,color);
+			}
 		}
 		
 	}

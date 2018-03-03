@@ -14,7 +14,9 @@ public class LineSegment
 	private static string _antiAliasingSmoothingParam = "_AASmoothing";
 	private static string _fillWidthParam = "_FillWidth";
 	private static string _borderColorParam = "_BorderColor";
-
+	private static string _lineLengthParam = "_LineLength";
+	private static string _distanceBetweenDashesParam = "_DistanceBetweenDashes";
+	private static string _dashWidthParam = "_DashWidth";
 
 	public static Vector3 FaceCameraForward
 	{
@@ -36,9 +38,9 @@ public class LineSegment
 		}
 	}
 
-	static Matrix4x4 GetLineTRSMatrix(Vector3 startPos, Vector3 endPos,Vector3 forward, float width)
+	static Matrix4x4 GetLineTRSMatrix(Vector3 startPos, Vector3 endPos,Vector3 forward, float width,out float lineLength)
 	{
-		var lineLength = Vector3.Distance(endPos,startPos);
+		lineLength = Vector3.Distance(endPos,startPos);
 
 		var up = (endPos - startPos).normalized;
 
@@ -68,10 +70,13 @@ public class LineSegment
 	{
 		Setup(0);
 
-		var mat = GetLineTRSMatrix(startPos, endPos, forward, width);
+		float lineLength;
+		var mat = GetLineTRSMatrix(startPos, endPos, forward, width,out lineLength);
 		
 		_materialPropertyBlock.SetColor(_colorParam,color);
 		_materialPropertyBlock.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
+		_materialPropertyBlock.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
+		_materialPropertyBlock.SetFloat(_lineLengthParam,lineLength);
 		
 		Graphics.DrawMesh(_lineSegmentMesh,mat,_lineSegmentMaterial,0,null,0,_materialPropertyBlock);
 	}
@@ -81,14 +86,33 @@ public class LineSegment
 		Color color, Color borderColor, float borderWidth)
 	{
 		Setup(1,"BORDER");
-
-		var mat = GetLineTRSMatrix(startPos, endPos, forward, width);
+		
+		float lineLength;
+		var mat = GetLineTRSMatrix(startPos, endPos, forward, width,out lineLength);
 		
 		_materialPropertyBlock.SetColor(_colorParam,color);
 		_materialPropertyBlock.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
 		_materialPropertyBlock.SetColor(_borderColorParam,borderColor);
 		float borderWidthNormalized = borderWidth / width;
 		_materialPropertyBlock.SetFloat(_fillWidthParam,0.5f-borderWidthNormalized);
+		_materialPropertyBlock.SetFloat(_lineLengthParam,lineLength);
+		
+		Graphics.DrawMesh(_lineSegmentMesh,mat,_lineSegmentMaterial,0,null,0,_materialPropertyBlock);
+	}
+	
+	public static void DrawDashed(Vector3 startPos, Vector3 endPos,Vector3 forward, float width, 
+		Color color,float distanceBetweenDashes=0.3f,float dashWidth=0.1f)
+	{
+		Setup(2,"DASHED");
+		
+		float lineLength;
+		var mat = GetLineTRSMatrix(startPos, endPos, forward, width,out lineLength);
+		
+		_materialPropertyBlock.SetColor(_colorParam,color);
+		_materialPropertyBlock.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
+		_materialPropertyBlock.SetFloat(_lineLengthParam,lineLength);
+		_materialPropertyBlock.SetFloat(_distanceBetweenDashesParam,distanceBetweenDashes);
+		_materialPropertyBlock.SetFloat(_dashWidthParam,dashWidth);
 		
 		Graphics.DrawMesh(_lineSegmentMesh,mat,_lineSegmentMaterial,0,null,0,_materialPropertyBlock);
 	}
@@ -146,18 +170,21 @@ public class LineSegment
 			5, 4, 1,
 		};
 
-		var uvLeft = 0.5f;
-		var uvCenter = 0f;
-		var uvRight = 0.5f;
+		var uvXLeft = 0.5f;
+		var uvXCenter = 0f;
+		var uvXRight = 0.5f;
+
+		var uvYBottom = 0f;
+		var uvYTop = 1f;
 		
 		quadMesh.uv = new[]
 		{
-			new Vector2(uvLeft, 	0f),
-			new Vector2(uvCenter, 	0f),
-			new Vector2(uvRight, 	0f),
-			new Vector2(uvLeft, 	0f),
-			new Vector2(uvCenter, 	0f),
-			new Vector2(uvRight, 	0f)
+			new Vector2(uvXLeft, 	uvYBottom),
+			new Vector2(uvXCenter, 	uvYBottom),
+			new Vector2(uvXRight, 	uvYBottom),
+			new Vector2(uvXLeft, 	uvYTop),
+			new Vector2(uvXCenter, 	uvYTop),
+			new Vector2(uvXRight, 	uvYTop)
 		};
 
 		return quadMesh;

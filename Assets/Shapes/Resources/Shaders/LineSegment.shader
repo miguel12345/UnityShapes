@@ -18,15 +18,22 @@
 			#pragma vertex vert
 			#pragma fragment frag
             #pragma multi_compile _ BORDER
+            #pragma multi_compile _ DASHED
 			
 			#include "UnityCG.cginc"
 
             float _AASmoothing;
             fixed4 _Color;
+            fixed _LineLength;
             
             #if BORDER
             fixed4 _BorderColor;
             float _FillWidth;
+            #endif
+            
+            #if DASHED
+            float _DistanceBetweenDashes;
+            float _DashWidth;
             #endif
 
 			struct appdata
@@ -51,9 +58,9 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-			    float edgeDistance = i.uv.x;
-			    
-			    float edgeDistancePerPixel = fwidth(edgeDistance);
+			   float edgeDistance = i.uv.x;
+			   float edgeDistancePerPixel = fwidth(edgeDistance);
+               
 			    			    
 			    fixed4 fillColor = _Color;
 			    
@@ -62,8 +69,28 @@
 			    fillColor = lerp(fillColor,_BorderColor,fillToBlendColorLerpFactor);
 			    #endif
 			    
+			   
+			    #if DASHED
+			    float distanceFromLineOrigin = i.uv.y * _LineLength;
+			    float distanceFromLineOriginPerPixel = fwidth(distanceFromLineOrigin);
+			    float smoothDistance = distanceFromLineOriginPerPixel*_AASmoothing;
+			    float halfSmoothDistance = smoothDistance * 0.5f;
+			    
+			    float previousDashSegmentDistanceFromOrigin = floor(distanceFromLineOrigin / _DistanceBetweenDashes) * _DistanceBetweenDashes;
+			    float nextDashSegmentDistanceFromOrigin = previousDashSegmentDistanceFromOrigin + _DistanceBetweenDashes;
+			    
+			    float fragmentDistanceFromPreviousDashSegment = distanceFromLineOrigin - previousDashSegmentDistanceFromOrigin;
+			    float fragmentDistanceFromNextDashSegment = nextDashSegmentDistanceFromOrigin - distanceFromLineOrigin;
+			    
+			    float distanceFromClosestDashSegment = min(fragmentDistanceFromPreviousDashSegment,fragmentDistanceFromNextDashSegment);
+			    
+			    float dashAlpha = 1.0 - smoothstep(_DashWidth-halfSmoothDistance,_DashWidth+halfSmoothDistance,distanceFromClosestDashSegment);
+			    
+			    fillColor.a *= dashAlpha;
+			    #endif
+			     
+			    
                 float edgeAlpha = 1.0 - smoothstep(0.5 - edgeDistancePerPixel*_AASmoothing, 0.5, edgeDistance);
-
 			    fillColor.a *= edgeAlpha;
 			    
                 return fillColor;
