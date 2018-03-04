@@ -223,15 +223,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPointTransform: {fileID: 2006768918}
   endPointTransform: {fileID: 144567601}
-  lineWidth: 0.4
-  aaSmoothing: 0.5
-  color: {r: 1, g: 0, b: 0, a: 1}
-  Border: 0
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderWidth: 0.2
-  Dashed: 0
-  DistanceBetweenDashes: 0.3
-  DashWidth: 0.1
+  lineInfo:
+    startPos: {x: 0, y: 0, z: 0}
+    endPos: {x: 0, y: 0, z: 0}
+    color: {r: 1, g: 0, b: 0, a: 1}
+    forward: {x: 0, y: 0, z: 0}
+    width: 1
+    bordered: 0
+    borderColor: {r: 0, g: 0, b: 0, a: 0}
+    borderWidth: 0
+    dashed: 0
+    distanceBetweenDashes: 0
+    dashLength: 0
+    startArrow: 0
+    startArrowWidth: 0
+    startArrowLength: 0
+    endArrow: 0
+    endArrowWidth: 0
+    endArrowLength: 0
 --- !u!4 &108506627
 Transform:
   m_ObjectHideFlags: 0
@@ -269,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 144567600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.524, z: 0}
+  m_LocalPosition: {x: 0, y: 4.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 108506627}
@@ -362,7 +371,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2006768917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 108506627}

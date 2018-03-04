@@ -43,7 +43,7 @@
                 UNITY_DEFINE_INSTANCED_PROP(float, _AASmoothing)
             UNITY_INSTANCING_BUFFER_END(CommonProps)
 
-			#if BORDER_COLOR
+			#if BORDER
 			UNITY_INSTANCING_BUFFER_START(BorderProps)
 			     UNITY_DEFINE_INSTANCED_PROP(fixed4, _BorderColor)
 			     UNITY_DEFINE_INSTANCED_PROP(float, _FillWidth)
@@ -82,12 +82,13 @@
 			    
 			    float distancePerPixel = fwidth(distanceToCenter);
 			    float distanceAlphaFactor = 1.0 - smoothstep(1.0-distancePerPixel*aaSmoothing,1.0,distanceToCenter);
+			    float halfSmoothFactor = 0.5f * distancePerPixel * aaSmoothing;
 			    
-			    #if BORDER_COLOR
+			    #if BORDER
 			    float fillWidth = UNITY_ACCESS_INSTANCED_PROP(BorderProps, _FillWidth);
 			    fixed4 borderColor = UNITY_ACCESS_INSTANCED_PROP(BorderProps, _BorderColor);
 			    
-			    float fillToBorder = smoothstep(fillWidth,fillWidth+distancePerPixel*aaSmoothing,distanceToCenter);
+			    float fillToBorder = smoothstep(fillWidth-halfSmoothFactor,fillWidth+halfSmoothFactor,distanceToCenter);
 			    fixed4 circleColor = lerp(fillColor,borderColor,fillToBorder);
 			    #else
 			    fixed4 circleColor = fillColor;

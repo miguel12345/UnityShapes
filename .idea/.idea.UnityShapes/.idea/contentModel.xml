@@ -15,9 +15,11 @@
         </e>
         <e p="Shapes" t="Include">
           <e p="Circle.cs" t="Include" />
+          <e p="LineInfo.cs" t="Include" />
           <e p="LineSegment.cs" t="Include" />
           <e p="Resources" t="Include">
             <e p="Shaders" t="Include">
+              <e p="ArrowHead.shader" t="Include" />
               <e p="Circle.shader" t="Include" />
               <e p="LineSegment.shader" t="Include" />
             </e>

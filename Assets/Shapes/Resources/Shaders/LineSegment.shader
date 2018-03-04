@@ -19,6 +19,7 @@
 			#pragma fragment frag
             #pragma multi_compile _ BORDER
             #pragma multi_compile _ DASHED
+            #pragma multi_compile VERTICAL_EDGE_SMOOTH_ON VERTICAL_EDGE_SMOOTH_OFF
 			
 			#include "UnityCG.cginc"
 
@@ -91,7 +92,16 @@
 			     
 			    
                 float edgeAlpha = 1.0 - smoothstep(0.5 - edgeDistancePerPixel*_AASmoothing, 0.5, edgeDistance);
-			    fillColor.a *= edgeAlpha;
+			    
+			    #if VERTICAL_EDGE_SMOOTH_ON
+			    float verticalDistance = i.uv.y;
+			    float distanceToClosestVerticalEdge = min(1.0-verticalDistance,verticalDistance);
+			    float distanceToClosestVerticalEdgePerPixel = fwidth(distanceToClosestVerticalEdge);
+			    float verticalEdgeAlpha = smoothstep(0.0, distanceToClosestVerticalEdgePerPixel*_AASmoothing, distanceToClosestVerticalEdge);
+			    fillColor.a *= verticalEdgeAlpha;
+			    #endif
+			     
+			     fillColor.a *= edgeAlpha;
 			    
                 return fillColor;
 			}
