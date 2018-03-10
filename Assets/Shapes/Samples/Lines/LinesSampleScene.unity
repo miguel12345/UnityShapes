@@ -225,8 +225,8 @@ MonoBehaviour:
   endPointTransform: {fileID: 144567601}
   lineInfo:
     startPos: {x: 0, y: 0, z: 0}
-    endPos: {x: 0, y: 0, z: 0}
-    fillColor: {r: 0, g: 0, b: 0, a: 0}
+    endPos: {x: 0, y: 3, z: 0}
+    fillColor: {r: 1, g: 0, b: 0, a: 1}
     forward: {x: 0, y: 0, z: 0}
     width: 1
     bordered: 0

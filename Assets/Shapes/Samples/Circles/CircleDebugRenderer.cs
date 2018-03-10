@@ -29,7 +29,7 @@ namespace Shapes.Samples.Circles
 			var circleInfo = new CircleInfo
 			{
 				center = transform.position,
-				forward = Camera.main.transform.forward,
+				forward = transform.forward,
 				radius = Radius,
 				fillColor = FillColor
 			};
