@@ -15,6 +15,7 @@
         </e>
         <e p="Shapes" t="Include">
           <e p="Circle.cs" t="Include" />
+          <e p="CircleInfo.cs" t="Include" />
           <e p="LineInfo.cs" t="Include" />
           <e p="LineSegment.cs" t="Include" />
           <e p="Resources" t="Include">
@@ -24,13 +25,13 @@
               <e p="LineSegment.shader" t="Include" />
             </e>
           </e>
-        </e>
-        <e p="Shapes Sample scenes" t="Include">
-          <e p="Circles" t="Include">
-            <e p="CircleDebugRenderer.cs" t="Include" />
-          </e>
-          <e p="Lines" t="Include">
-            <e p="LineDebugRenderer.cs" t="Include" />
+          <e p="Samples" t="Include">
+            <e p="Circles" t="Include">
+              <e p="CircleDebugRenderer.cs" t="Include" />
+            </e>
+            <e p="Lines" t="Include">
+              <e p="LineDebugRenderer.cs" t="Include" />
+            </e>
           </e>
         </e>
       </e>

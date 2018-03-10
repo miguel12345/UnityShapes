@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Shapes
@@ -33,6 +34,8 @@ namespace Shapes
 		private static string _lineLengthParam = "_LineLength";
 		private static string _distanceBetweenDashesParam = "_DistanceBetweenDashes";
 		private static string _dashWidthParam = "_DashWidth";
+		private static string _arrowHeadBaseEdgeNoAAMinX = "_BaseEdgeNoAAMinX";
+		private static string _arrowHeadBaseEdgeNoAAMaxX = "_BaseEdgeNoAAMaxX";
 
 		public static Vector3 FaceCameraForward
 		{
@@ -82,6 +85,12 @@ namespace Shapes
 			if (_lineMaterials[materialIndex] == null)
 			{
 				var material = new Material(Shader.Find("Hidden/Shapes/LineSegment"));
+				
+				if (SystemInfo.supportsInstancing)
+				{
+					material.enableInstancing = true;
+				}
+				
 				if (_materialKeywords[materialIndex] != null)
 				{
 					material.shaderKeywords = _materialKeywords[materialIndex];
@@ -136,6 +145,8 @@ namespace Shapes
 
 			return _arrowHeadMesh;
 		}
+
+		
 		
 		private static Mesh createArrowHeadMesh()
 		{
@@ -160,29 +171,44 @@ namespace Shapes
 				new Vector2(0.0f, 1.0f),
 			};
 
+			quadMesh.colors32 = new[]
+			{
+				new Color32(Byte.MaxValue, 0, 0, 0),
+				new Color32(0, Byte.MaxValue, 0, 0),
+				new Color32(0, 0, Byte.MaxValue, 0),
+			};
+
 			return quadMesh;
 		}
 
 		static void FillPropertyBlock(MaterialPropertyBlock block, LineInfo lineInfo,float lineSegmentLength)
 		{
-			_materialPropertyBlock.SetColor(_colorParam,lineInfo.color);
-			_materialPropertyBlock.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
+			block.SetColor(_colorParam,lineInfo.fillColor);
+			block.SetFloat(_antiAliasingSmoothingParam,antiAliasingSmoothing);
 
 			if (lineInfo.bordered)
 			{
-				_materialPropertyBlock.SetColor(_borderColorParam,lineInfo.borderColor);
+				block.SetColor(_borderColorParam,lineInfo.borderColor);
 				var borderWidthNormalized = lineInfo.borderWidth / lineInfo.width;
-				_materialPropertyBlock.SetFloat(_fillWidthParam,0.5f-borderWidthNormalized);
+				block.SetFloat(_fillWidthParam,0.5f-borderWidthNormalized);
 			}
 
 			if (lineInfo.dashed)
 			{
-				_materialPropertyBlock.SetFloat(_lineLengthParam,lineSegmentLength);
-				_materialPropertyBlock.SetFloat(_distanceBetweenDashesParam,lineInfo.distanceBetweenDashes);
-				_materialPropertyBlock.SetFloat(_dashWidthParam,lineInfo.dashLength);
+				block.SetFloat(_lineLengthParam,lineSegmentLength);
+				block.SetFloat(_distanceBetweenDashesParam,lineInfo.distanceBetweenDashes);
+				block.SetFloat(_dashWidthParam,lineInfo.dashLength);
+			}
+
+			if (lineInfo.startArrow || lineInfo.endArrow)
+			{
+				float baseEdgeNoAAMaxX = (lineInfo.width / lineInfo.arrowWidth) * 0.5f;
+				float baseEdgeNoAAMinX = -baseEdgeNoAAMaxX;
+				block.SetFloat(_arrowHeadBaseEdgeNoAAMinX,baseEdgeNoAAMinX);
+				block.SetFloat(_arrowHeadBaseEdgeNoAAMaxX,baseEdgeNoAAMaxX);
 			}
 		}
-	
+		
 		private static Mesh CreateLineSegmentMesh()
 		{
 			var quadMesh = new Mesh();
@@ -278,20 +304,22 @@ namespace Shapes
 		public static void Draw(LineInfo lineInfo)
 		{
 			var lineMaterial = GetLineMaterial(lineInfo);
-			var lineSegmentMesh = GetLineMesh(lineInfo);
+			var lineSegmentMesh = GetLineMesh(lineInfo); 
 			var materialPropertyBlock = GetMaterialPropertyBlock(lineInfo);
 
 			var lineSegmentStartPos = lineInfo.startPos;
 			var lineSegmentEndPos = lineInfo.endPos;
 
+			var lineDirection = (lineSegmentEndPos - lineSegmentStartPos).normalized;
+			
 			if (lineInfo.startArrow)
 			{
-				lineSegmentStartPos = lineSegmentStartPos + (lineSegmentEndPos - lineSegmentStartPos).normalized * lineInfo.startArrowLength;
+				lineSegmentStartPos = lineSegmentStartPos + lineDirection * lineInfo.arrowLength;
 			}
 			
 			if (lineInfo.endArrow)
 			{
-				lineSegmentEndPos = lineSegmentEndPos + (lineSegmentStartPos - lineSegmentEndPos).normalized * lineInfo.endArrowLength;
+				lineSegmentEndPos = lineSegmentEndPos - lineDirection * lineInfo.arrowLength;
 			}
 			
 			var forward = lineInfo.forward;
@@ -307,14 +335,13 @@ namespace Shapes
 
 			if (lineInfo.endArrow)
 			{
-				DrawArrowHead(lineSegmentEndPos, lineInfo.endPos, forward, lineInfo.endArrowWidth,materialPropertyBlock);
+				DrawArrowHead(lineSegmentEndPos, lineInfo.endPos, forward, lineInfo.arrowWidth,materialPropertyBlock);
 			}
 			
 			if (lineInfo.startArrow)
 			{
-				DrawArrowHead(lineSegmentStartPos,lineInfo.startPos, forward, lineInfo.startArrowWidth,materialPropertyBlock);
+				DrawArrowHead(lineSegmentStartPos,lineInfo.startPos, forward, lineInfo.arrowWidth,materialPropertyBlock);
 			}
 		}
-		
 	}
 }

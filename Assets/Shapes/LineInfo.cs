@@ -8,7 +8,7 @@ namespace Shapes
 	{
 		public Vector3 startPos;
 		public Vector3 endPos;
-		public Color color;
+		public Color fillColor;
 		public Vector3 forward;
 		public float width;
 
@@ -21,11 +21,9 @@ namespace Shapes
 		public float dashLength;
 
 		public bool startArrow;
-		public float startArrowWidth;
-		public float startArrowLength;
-		
 		public bool endArrow;
-		public float endArrowWidth;
-		public float endArrowLength;
+		
+		public float arrowWidth;
+		public float arrowLength;
 	}
 }

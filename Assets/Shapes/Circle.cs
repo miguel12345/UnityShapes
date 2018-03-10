@@ -19,58 +19,114 @@ namespace Shapes
 		private const string SectorPlaneNormal1 = "_cutPlaneNormal1";
 		private const string SectorPlaneNormal2 = "_cutPlaneNormal2";
 		private const string SectorAngleBlendMode = "_AngleBlend";
-
-		private static int _borderlessCircleMaterialIndex = 0;
-		private static int _borderCircleMaterialIndex = 1;
-		private static int _borderlessSectorMaterialIndex = 2;
-		private static int _borderSectorMaterialIndex = 3;
-
-		public static void DrawSector(Vector3 center, Vector3 forward, float radius,Color fillColor, Color borderColor, float borderWidth,
-			float initialAngleDegrees, float sectorArcLength)
+		private static string[][] _materialKeywords = new string[][]
 		{
-			if (_quadMesh == null)
+			null,
+			new []{"BORDER"}, 
+			new []{"SECTOR"}, 
+			new []{"BORDER","SECTOR"}, 
+		};
+
+		private static MaterialPropertyBlock _materialPropertyBlock;
+
+
+		static Material GetMaterial(CircleInfo circleInfo)
+		{
+			var materialIndex = 0;
+
+			if (circleInfo.bordered)
 			{
-				_quadMesh = CreateQuadMesh();
+				materialIndex = 1;
 			}
 
-			var material = GetOrCreateCircleMaterial(_borderSectorMaterialIndex, BorderColorKeyword,SectorKeyword);
-		
-			var materialPropertyBlock = new MaterialPropertyBlock();
-		
-			materialPropertyBlock.SetColor(FillColorParam,fillColor);
-			materialPropertyBlock.SetColor(BorderColorParam,borderColor);
-			var borderWidthNormalized = borderWidth / radius;
-			materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidthNormalized);
-			materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
+			if (circleInfo.isSector)
+			{
+				materialIndex = 2;
+			}
 
-			setSectorAngles(materialPropertyBlock,initialAngleDegrees, sectorArcLength);
+			if (circleInfo.bordered && circleInfo.isSector)
+			{
+				materialIndex = 3;
+			}
 
-			var rotation = Quaternion.LookRotation(forward);
+
+			if (_materials[materialIndex] != null)
+			{
+				return _materials[materialIndex];
+			}
+			
+			var mat = new Material(Shader.Find("Hidden/Shapes/Circle"));
 		
-			Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
+			if (SystemInfo.supportsInstancing)
+			{
+				mat.enableInstancing = true;
+			}
+
+			var keywords = _materialKeywords[materialIndex];
+
+			if (keywords != null)
+			{
+				mat.shaderKeywords = keywords;
+			}
+			
+
+			_materials[materialIndex] = mat;
+
+			return mat;
 		}
-	
-		public static void DrawSector(Vector3 center, Vector3 forward, float radius,Color fillColor,
-			float initialAngleDegrees, float sectorArcLength)
+		
+		static MaterialPropertyBlock GetMaterialPropertyBlock(CircleInfo circleInfo)
 		{
-			//TODO FINISH FORWARD VECTOR
-			if (_quadMesh == null)
+			if (_materialPropertyBlock == null)
 			{
-				_quadMesh = CreateQuadMesh();
+				_materialPropertyBlock = new MaterialPropertyBlock();
+			}
+		
+			_materialPropertyBlock.SetColor(FillColorParam,circleInfo.fillColor);
+			_materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
+
+			if (circleInfo.bordered)
+			{
+				_materialPropertyBlock.SetColor(BorderColorParam,circleInfo.borderColor);
+				var borderWidthNormalized = circleInfo.borderWidth / circleInfo.radius;
+				_materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidthNormalized);
 			}
 
-			var material = GetOrCreateCircleMaterial(_borderlessSectorMaterialIndex,SectorKeyword);
-		
-			var materialPropertyBlock = new MaterialPropertyBlock();
-		
-			materialPropertyBlock.SetColor(FillColorParam,fillColor);
-			materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
+			if (circleInfo.isSector)
+			{
+				setSectorAngles(_materialPropertyBlock,circleInfo.sectorInitialAngleInDegrees, circleInfo.sectorArcLengthInDegrees);
+			}
 
-			setSectorAngles(materialPropertyBlock,initialAngleDegrees, sectorArcLength);
 
-			var rotation = Quaternion.LookRotation(forward);
-		
-			Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
+			return _materialPropertyBlock;
+		}
+
+		static Mesh GetCircleMesh()
+		{
+			if (_quadMesh != null)
+			{
+				return _quadMesh;
+			}
+
+			_quadMesh = CreateQuadMesh();
+
+			return _quadMesh;
+		}
+
+		static Matrix4x4 GetTRSMatrix(CircleInfo circleInfo)
+		{
+			var rotation = Quaternion.LookRotation(circleInfo.forward);
+			return Matrix4x4.TRS(circleInfo.center, rotation, new Vector3(circleInfo.radius, circleInfo.radius, 1f));
+		}
+
+		public static void Draw(CircleInfo circleInfo)
+		{
+			var mesh = GetCircleMesh();
+			var materialPropertyBlock = GetMaterialPropertyBlock(circleInfo);
+			var matrix = GetTRSMatrix(circleInfo);
+			var material = GetMaterial(circleInfo);
+			
+			Graphics.DrawMesh(mesh,matrix,material,0,null,0,materialPropertyBlock);
 		}
 
 		static void setSectorAngles(MaterialPropertyBlock block, float initialAngleDegrees, float sectorArcLengthDegrees)
@@ -86,71 +142,7 @@ namespace Shapes
 			block.SetVector(SectorPlaneNormal2,cutPlaneNormal2);
 			block.SetFloat(SectorAngleBlendMode,sectorArcLengthDegrees<180f?0f:1f);
 		}
-	
-		public static void Draw(Vector3 center, Vector3 forward, float radius,Color fillColor, Color borderColor,float borderWidth)
-		{
-			if (_quadMesh == null)
-			{
-				_quadMesh = CreateQuadMesh();
-			}
 
-			var material = GetOrCreateCircleMaterial(_borderCircleMaterialIndex, BorderColorKeyword);
-		
-			var materialPropertyBlock = new MaterialPropertyBlock();
-		
-			materialPropertyBlock.SetColor(FillColorParam,fillColor);
-			materialPropertyBlock.SetColor(BorderColorParam,borderColor);
-			var borderWidthNormalized = borderWidth / radius;
-			materialPropertyBlock.SetFloat(FillWidthParam,1.0f-borderWidthNormalized);
-			materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
-
-			var rotation = Quaternion.LookRotation(forward);
-
-			Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
-		}
-	
-		public static void Draw(Vector3 center, Vector3 forward, float radius,Color fillColor)
-		{
-			if (_quadMesh == null)
-			{
-				_quadMesh = CreateQuadMesh();
-			}
-
-			var material = GetOrCreateCircleMaterial(_borderlessCircleMaterialIndex);
-		
-			var materialPropertyBlock = new MaterialPropertyBlock();
-		
-			materialPropertyBlock.SetColor(FillColorParam,fillColor);
-			materialPropertyBlock.SetFloat(AASmoothingParam,antiAliasingSmoothing);
-
-			var rotation = Quaternion.LookRotation(forward);
-		
-			Graphics.DrawMesh(_quadMesh,Matrix4x4.TRS(center,rotation, new Vector3(radius,radius,1f)),material,0,null,0,materialPropertyBlock);
-		}
-
-		private static Material GetOrCreateCircleMaterial(int materialIndex,params string[] keywords)
-		{
-			if (_materials[materialIndex] != null)
-			{
-				return _materials[materialIndex];
-			}
-		
-			var mat = new Material(Shader.Find("Hidden/Shapes/Circle"));
-		
-			if (SystemInfo.supportsInstancing)
-			{
-				mat.enableInstancing = true;
-			}
-		
-			foreach (var keyword in keywords)
-			{
-				mat.EnableKeyword(keyword);
-			}
-
-			_materials[materialIndex] = mat;
-		
-			return mat;
-		}
 	
 		private static Mesh CreateQuadMesh()
 		{

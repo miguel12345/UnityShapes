@@ -226,7 +226,7 @@ MonoBehaviour:
   lineInfo:
     startPos: {x: 0, y: 0, z: 0}
     endPos: {x: 0, y: 0, z: 0}
-    color: {r: 1, g: 0, b: 0, a: 1}
+    fillColor: {r: 0, g: 0, b: 0, a: 0}
     forward: {x: 0, y: 0, z: 0}
     width: 1
     bordered: 0
@@ -236,11 +236,9 @@ MonoBehaviour:
     distanceBetweenDashes: 0
     dashLength: 0
     startArrow: 0
-    startArrowWidth: 0
-    startArrowLength: 0
     endArrow: 0
-    endArrowWidth: 0
-    endArrowLength: 0
+    arrowWidth: 0
+    arrowLength: 0
 --- !u!4 &108506627
 Transform:
   m_ObjectHideFlags: 0
