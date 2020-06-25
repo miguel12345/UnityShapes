@@ -1,0 +1,12 @@
+{
+    "name": "com.jtfrom9.miguel12345.unity-shapes",
+    "displayName": "Unity Shapes fork",
+    "version": "1.0.0",
+    "unity": "2019.4",
+    "description": "Draw anti-aliased, GPU-instance-supported, 0 allocation shapes (circle,line,arrow) with one line of code in Unity",
+    "dependencies": {
+    },
+    "author": {
+        "name": "miguel12345"
+    }
+}
