@@ -50,8 +50,8 @@
 			{
 				v2f o;
 				
-				UNITY_SETUP_INSTANCE_ID(v);
-				UNITY_TRANSFER_INSTANCE_ID(v, o);
+				// UNITY_SETUP_INSTANCE_ID(v);
+				// UNITY_TRANSFER_INSTANCE_ID(v, o);
 				
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv;
@@ -60,7 +60,7 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-                UNITY_SETUP_INSTANCE_ID(i);
+                // UNITY_SETUP_INSTANCE_ID(i);
                 
                 float aaSmoothing = UNITY_ACCESS_INSTANCED_PROP(CommonProps, _AASmoothing);
 			    fixed4 fillColor = UNITY_ACCESS_INSTANCED_PROP(CommonProps, _FillColor);
